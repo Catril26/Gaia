@@ -924,20 +924,20 @@ public class FarmingManager
             }
 
             // --- THE FIX: Look for the FFXIV Event Inventory popup ---
-            if (!IsEventInventoryOpen())
-            {
-                if (Environment.TickCount64 > _lastStateChangeTime + _plugin.Configuration.InventoryWaitTimeout)
-                {
-                    PrintYellow("Inventory failed to open (Likely already fertilized). Skipping.");
-                    UpdateFertilizeTime(VisitOrder[CurrentPlantIndex]);
-                    CurrentState = FarmingState.AdvanceNext;
-                }
-                else
-                {
-                    _nextActionTime = Environment.TickCount64 + _plugin.Configuration.FertilizePollDelay;
-                }
-                return;
-            }
+            //if (!IsEventInventoryOpen())
+            //{
+            //    if (Environment.TickCount64 > _lastStateChangeTime + _plugin.Configuration.InventoryWaitTimeout)
+            //    {
+            //        PrintYellow("Inventory failed to open (Likely already fertilized). Skipping.");
+            //        UpdateFertilizeTime(VisitOrder[CurrentPlantIndex]);
+            //        CurrentState = FarmingState.AdvanceNext;
+            //    }
+            //    else
+            //    {
+            //        _nextActionTime = Environment.TickCount64 + _plugin.Configuration.FertilizePollDelay;
+            //    }
+            //    return;
+            //}
 
             uint fishmealId = _plugin.Configuration.FertilizerId;
             var liveData = InventoryHelper.GetItemLocation(fishmealId);
